@@ -149,6 +149,7 @@ const Home: NextPage = () => {
                       {file.filename && (
                         <div className="space-y-2">
                           <img
+                            key={file.id}
                             src={`http://localhost:3000/static/images/uploads/${file.filename}`}
                             className="w-36 h-36 rounded-lg"
                             alt="uploaded"
