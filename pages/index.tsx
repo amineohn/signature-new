@@ -143,13 +143,12 @@ const Home: NextPage = () => {
             </div>
             {data !== null ? (
               data.map((file: Uploads) => (
-                <div className="inline-flex">
+                <div key={file.id} className="inline-flex">
                   <div className="grid grid-cols-1 items-center justify-center space-y-4">
                     <div className="">
                       {file.filename && (
                         <div className="space-y-2">
                           <img
-                            key={file.id}
                             src={`http://localhost:3000/static/images/uploads/${file.filename}`}
                             className="w-36 h-36 rounded-lg"
                             alt="uploaded"
