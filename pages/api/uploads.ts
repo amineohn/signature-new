@@ -8,7 +8,7 @@ const upload = multer({
   }),
 });
 
-const apiRoute = nextConnect({
+export const router = nextConnect({
   onError(error, req: any, res: any) {
     res
       .status(501)
@@ -19,16 +19,13 @@ const apiRoute = nextConnect({
   },
 });
 
-apiRoute.use(upload.array("theFiles"));
+router.use(upload.array("theFiles"));
 
-apiRoute.post((req, res) => {
+router.post((req, res) => {
   res.status(200).json({ data: "success", files: req.files, file: req.file });
 });
-
-export default apiRoute;
-
 export const config = {
   api: {
-    bodyParser: false, // Disallow body parsing, consume as stream
+    bodyParser: false,
   },
 };
