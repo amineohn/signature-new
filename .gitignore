@@ -47,3 +47,4 @@ yarn.lock
 
 # pnpm
 pnpm-lock.yaml
+.pnpm-debug.log
