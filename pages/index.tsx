@@ -12,6 +12,14 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([{}] as any);
   const fire = new Firebase();
+  const deleted = async (id: string) => {
+    try {
+      await fire.delete(id, "photos");
+      setData(data.filter((item) => item.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const onChange = async (formData) => {
     const config = {
       headers: { "content-type": "multipart/form-data" },

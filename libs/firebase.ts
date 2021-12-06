@@ -216,11 +216,9 @@ export class Firebase {
     await collectionRef.add(data);
   }
 
-  async delete(collection: string, documentPath: string) {
+  async delete(id: string, collection: string) {
     const collectionRef = this.collection(collection);
-
-    const documentRef = collectionRef.doc(documentPath);
-    await documentRef.delete();
+    const documentRef = collectionRef.doc(id);
   }
 
   async get(collection: string, documentPath: string) {
